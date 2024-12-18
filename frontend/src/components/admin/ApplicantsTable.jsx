@@ -10,7 +10,7 @@ import axios from 'axios';
 const shortlistingStatus = ["Accepted", "Rejected"];
 
 const ApplicantsTable = () => {
-    const { applicants } = useSelector(store => store.application);
+    const { allApplicants } = useSelector(store => store.application);
     
 
     const statusHandler = async (status, id) => {
@@ -42,7 +42,7 @@ const ApplicantsTable = () => {
                 </TableHeader>
                 <TableBody>
                     {
-                        applicants && applicants?.applications?.map((item) => (
+                        allApplicants && allApplicants?.applications?.map((item) => (
                             <tr key={item._id}>
                                 <TableCell>{item?.applicant?.fullname}</TableCell>
                                 <TableCell>{item?.applicant?.email}</TableCell>
