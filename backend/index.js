@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOption = {
-    origin: "https://jobportal-frontend-z8ux.onrender.com",
+    origin: ["http://localhost:5173","https://jobportal-frontend-z8ux.onrender.com"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -25,7 +25,6 @@ const corsOption = {
   app.use(cors(corsOption));
   
   app.options('*', cors(corsOption));  // Allow preflight requests
-
 
 
 const PORT = process.env.PORT || 3000;
@@ -37,6 +36,5 @@ app.use("/api/v1/application", applicationRoute);
 
 app.listen(PORT, ()=>{
     console.log(`app listining to port ${PORT}`);
-    connectDB();
-    
+    connectDB(process.env.MONGO_URI);
 })
