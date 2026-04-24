@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOption = {
-    origin: ["http://localhost:5173","https://job-portal-gamma-ten-29.vercel.app/"],
+    origin: ["http://localhost:5173","https://job-portal-gamma-ten-29.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
